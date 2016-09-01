@@ -1,0 +1,24 @@
+{
+  "name": "vue-component",
+  "version": "0.0.1",
+  "description": "Allows you to use VueJS components without a compile step",
+  "main": "index.js",
+  "scripts": {
+    "build": "bubleup ./src/main.js -o ./dist/vue-component.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jameymcelveen/vue-component.git"
+  },
+  "keywords": [],
+  "author": "Jamey McElveen <jamey@mcelveen.us>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jameymcelveen/vue-component/issues"
+  },
+  "homepage": "https://github.com/jameymcelveen/vue-component#readme",
+  "devDependencies": {
+    "bubleup": "^0.2.0"
+  }
+}
