@@ -4,6 +4,7 @@
 
 import Http from './Http'
 import TemplateParser from './TemplateParser';
+import Utils from './Utils';
 
 export default class ComponentFactory {
 
@@ -17,6 +18,9 @@ export default class ComponentFactory {
         let script = mutateScript(src, template);
         console.log(script);
         let func = new Function('Vue', script);
+        if(template.style) {
+          Utils.injectStyle(template.style);
+        }
         callback(func);
       }
     });

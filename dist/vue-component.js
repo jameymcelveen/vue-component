@@ -89,6 +89,30 @@ TemplateParser.parse = function parse (templateText) {
  * Created by Jamey McElveen on 9/1/16.
  */
 
+var query = function (selector, ctx) {
+  return (ctx || document).querySelectorAll(selector);
+};
+
+var injectStyle = function (css) {
+  var
+    head = document.head || document.getElementsByTagName('head')[0],
+    style = document.createElement('style');
+
+  style.type = 'text/css';
+  if (style.styleSheet){
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+
+  head.appendChild(style);
+};
+
+var Utils = {
+  query: query,
+  injectStyle: injectStyle
+};
+
 var ComponentFactory = function ComponentFactory () {};
 
 ComponentFactory.build = function build (src, callback) {
@@ -101,6 +125,9 @@ ComponentFactory.build = function build (src, callback) {
       var script = mutateScript(src, template);
       console.log(script);
       var func = new Function('Vue', script);
+      if(template.style) {
+        Utils.injectStyle(template.style);
+      }
       callback(func);
     }
   });
@@ -123,10 +150,6 @@ function mutateScript(url, template) {
 function snakeToCamel(s){
   return s.replace(/(\-\w)/g, function(m){return m[1].toUpperCase();});
 }
-
-/**
- * Created by Jamey McElveen on 9/1/16.
- */
 
 var VueComponent = (function () {
 
