@@ -1,3 +1,4 @@
+var VueComponent = (function () {
 'use strict';
 
 /**
@@ -113,6 +114,10 @@ var Utils = {
   injectStyle: injectStyle
 };
 
+/**
+ * Created by Jamey McElveen on 9/1/16.
+ */
+
 var ComponentFactory = function ComponentFactory () {};
 
 ComponentFactory.build = function build (src, callback) {
@@ -150,6 +155,10 @@ function mutateScript(url, template) {
 function snakeToCamel(s){
   return s.replace(/(\-\w)/g, function(m){return m[1].toUpperCase();});
 }
+
+/**
+ * Created by Jamey McElveen on 9/1/16.
+ */
 
 var VueComponent = (function () {
 
@@ -192,4 +201,6 @@ return {};
 
 })();
 
-module.exports = VueComponent;
+return VueComponent;
+
+}());

@@ -4,7 +4,7 @@
   "description": "Allows you to use VueJS components without a compile step",
   "main": "index.js",
   "scripts": {
-    "build": "bubleup ./src/main.js -o ./dist/vue-component.js",
+    "build": "bubleup ./src/main.js -o ./dist/vue-component.js --format iife --module-name VueComponent",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
